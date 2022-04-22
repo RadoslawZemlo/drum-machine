@@ -1,14 +1,29 @@
 import React from "react";
-import Pad from "../Pad/Pad";
+import * as sounds from "../Samples/Samples";
 
 const DrumMachine = () => {
-  const samples = ["kick", "snare", "closedHH", "openHH"];
+  const samples = Object.keys(sounds);
+  const playSamples = Object.values(sounds);
+
+  const playSample = e => {
+    const index = e.target.value;
+    const play = playSamples[index];
+
+    play();
+  };
 
   return (
     <div className="drum-machine">
       <div className="pads-container">
-        {samples.map(sample => (
-          <Pad sample={sample} />
+        {samples.map((sample, index) => (
+          <button
+            key={index}
+            className="pad"
+            value={index}
+            onClick={playSample}
+          >
+            {sample}
+          </button>
         ))}
       </div>
     </div>
