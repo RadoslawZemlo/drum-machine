@@ -1,4 +1,5 @@
 import "./App.css";
+import DrumMachine from "./components/DrumMachine/DrumMachine";
 
 function App() {
   return (
@@ -6,6 +7,7 @@ function App() {
       <header>
         <h1>Drum Maschine</h1>
       </header>
+      <DrumMachine />
     </div>
   );
 }
