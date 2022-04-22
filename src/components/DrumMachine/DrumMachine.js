@@ -1,11 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import * as sounds from "../Samples/Samples";
 
 const DrumMachine = () => {
+  const keys = ["`", "z", "x", "c"];
+
   const samples = Object.keys(sounds);
   const playSamples = Object.values(sounds);
 
-  const playSample = e => {
+  const handleKeyPress = e => {
+    keys.forEach((key, i) => {
+      if (e.key === key) playSamples[i]();
+    });
+  };
+
+  useEffect(() => {
+    document.addEventListener("keydown", handleKeyPress);
+  });
+
+  const handleClick = e => {
     const index = e.target.value;
     const play = playSamples[index];
 
@@ -20,9 +32,9 @@ const DrumMachine = () => {
             key={index}
             className="pad"
             value={index}
-            onClick={playSample}
+            onClick={handleClick}
           >
-            {sample}
+            {keys[index]}
           </button>
         ))}
       </div>
