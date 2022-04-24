@@ -1,6 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 const Pad = ({ keyPress, playSample }) => {
+  const [padDown, setPadDown] = useState(0);
+
   useEffect(() => {
     window.addEventListener("keydown", handleKeyDown);
 
@@ -9,14 +11,23 @@ const Pad = ({ keyPress, playSample }) => {
 
   const handleClick = () => {
     playSample();
+    setPadDown(1);
   };
 
   const handleKeyDown = e => {
-    if (e.key === keyPress) playSample();
+    if (e.key === keyPress) {
+      playSample();
+      setPadDown(1);
+    }
   };
 
   return (
-    <button className="pad" onClick={handleClick}>
+    <button
+      className="pad"
+      onClick={handleClick}
+      onAnimationEnd={() => setPadDown(0)}
+      paddown={padDown}
+    >
       {keyPress}
     </button>
   );

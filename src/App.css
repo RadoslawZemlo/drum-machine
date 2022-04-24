@@ -21,7 +21,7 @@ header h1 {
   display: flex;
   justify-content: center;
   gap: 0.5rem;
-  margin: 3rem auto;
+  margin: 2rem auto;
 }
 
 .pad {
@@ -36,4 +36,22 @@ header h1 {
   height: 4rem;
   width: 4rem;
   outline: none;
+}
+
+.pad[paddown="1"] {
+  animation: paddown 0.2s linear 1;
+}
+
+@keyframes paddown {
+  0% {
+    background-color: #d2691e;
+  }
+
+  50% {
+    background-color: #6f3003;
+  }
+
+  100% {
+    background-color: #d2691e;
+  }
 }
