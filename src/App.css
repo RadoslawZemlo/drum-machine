@@ -1,9 +1,39 @@
 * {
   box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   margin: 0;
   padding: 0;
 }
 
 header h1 {
   text-align: center;
+}
+
+.drum-machine {
+  background-color: #1c1c1c;
+  border: 0.1rem solid #000;
+  border-radius: 0.3rem;
+  margin: 1rem auto;
+  width: 20rem;
+}
+
+.pads-container {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 3rem auto;
+}
+
+.pad {
+  background-color: #d2691e;
+  border: 0.1rem solid #a6a4a4;
+  border-radius: 0.2rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 4rem;
+  width: 4rem;
+  outline: none;
 }
