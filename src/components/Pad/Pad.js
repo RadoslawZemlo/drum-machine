@@ -10,12 +10,16 @@ const Pad = ({ keyPress, sample }) => {
   });
 
   const handleClick = () => {
+    sample.currentTime = 0;
+
     sample.play();
     setPadDown(1);
   };
 
   const handleKeyDown = e => {
     if (e.key === keyPress) {
+      sample.currentTime = 0;
+
       sample.play();
       setPadDown(1);
     }
