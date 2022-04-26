@@ -19,6 +19,7 @@ header h1 {
 
 .pads-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 0.5rem;
   margin: 2rem auto;

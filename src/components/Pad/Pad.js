@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const Pad = ({ keyPress, playSample }) => {
+const Pad = ({ keyPress, sample }) => {
   const [padDown, setPadDown] = useState(0);
 
   useEffect(() => {
@@ -10,13 +10,13 @@ const Pad = ({ keyPress, playSample }) => {
   });
 
   const handleClick = () => {
-    playSample();
+    sample.play();
     setPadDown(1);
   };
 
   const handleKeyDown = e => {
     if (e.key === keyPress) {
-      playSample();
+      sample.play();
       setPadDown(1);
     }
   };
