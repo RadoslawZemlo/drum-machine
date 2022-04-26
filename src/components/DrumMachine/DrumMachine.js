@@ -1,7 +1,11 @@
+import { useState } from "react";
+import Display from "../Display/Display";
 import Pad from "../Pad/Pad";
 import * as sounds from "../Samples/Samples";
 
 const DrumMachine = () => {
+  const [currentPlay, setCurrentPlay] = useState();
+
   const keys = [
     "2",
     "3",
@@ -21,15 +25,21 @@ const DrumMachine = () => {
     "c"
   ];
 
-  console.log(sounds);
-
+  const samplesNames = Object.keys(sounds);
   const samples = Object.values(sounds);
 
   return (
     <div className="drum-machine">
+      <Display currentPlay={currentPlay} />
       <div className="pads-container">
         {samples.map((sample, i) => (
-          <Pad key={i} keyPress={keys[i]} sample={sample} />
+          <Pad
+            key={i}
+            keyPress={keys[i]}
+            sample={sample}
+            sampleName={samplesNames[i]}
+            setCurrentPlay={setCurrentPlay}
+          />
         ))}
       </div>
     </div>

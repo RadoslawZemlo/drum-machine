@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
-const Pad = ({ keyPress, sample }) => {
+const Pad = ({ keyPress, sample, sampleName, setCurrentPlay }) => {
   const [padDown, setPadDown] = useState(0);
 
   useEffect(() => {
@@ -13,6 +13,7 @@ const Pad = ({ keyPress, sample }) => {
     sample.currentTime = 0;
 
     sample.play();
+    setCurrentPlay(sampleName);
     setPadDown(1);
   };
 
@@ -21,6 +22,7 @@ const Pad = ({ keyPress, sample }) => {
       sample.currentTime = 0;
 
       sample.play();
+      setCurrentPlay(sampleName);
       setPadDown(1);
     }
   };
@@ -32,7 +34,7 @@ const Pad = ({ keyPress, sample }) => {
       onAnimationEnd={() => setPadDown(0)}
       paddown={padDown}
     >
-      {keyPress}
+      {keyPress.toUpperCase()}
     </button>
   );
 };
